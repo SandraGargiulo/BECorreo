@@ -1,0 +1,64 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com/unlaenvios/soap"
+           targetNamespace="http://com/unlaenvios/soap" elementFormDefault="qualified">
+           
+    <!-- GET de envio -->
+    <xs:element name="getSeguimientoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pedido" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getSeguimientoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="codseg" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- POST de envio -->
+    <xs:element name="postSeguimientoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="codseg" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="postSeguimientoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="est" type="xs:string" />
+                <xs:element name="fecha" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- PUT de envio -->
+    <xs:element name="putSeguimientoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="docdest" type="xs:int" />
+                <xs:element name="pedido" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="putSeguimientoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nseguimiento" type="tns:seguimiento" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- Definicion de objeto de tipo de envio -->
+    <xs:complexType name="seguimiento">
+        <xs:sequence>
+            <xs:element name="idpedido" type="xs:string"/>
+			<xs:element name="codseguimiento" type="xs:string"/>
+			<xs:element name="docdestinatario" type="xs:int"/>
+			<xs:element name="estado" type="xs:string"/>
+			<xs:element name="fechaActual" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
